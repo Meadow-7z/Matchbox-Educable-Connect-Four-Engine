@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=4 uid="uid://7y6110ptqgoo"]
+
+[ext_resource type="Script" uid="uid://b43wsf753c72s" path="res://Scenes/main.gd" id="1_01vli"]
+[ext_resource type="Texture2D" uid="uid://us0jxhtewk4x" path="res://c4grid.png" id="1_7atj5"]
+[ext_resource type="PackedScene" uid="uid://c3a8fmtippt8u" path="res://column.tscn" id="1_wqny1"]
+[ext_resource type="Texture2D" uid="uid://bmxuuil7to3xj" path="res://chips.png" id="2_qhve3"]
+[ext_resource type="PackedScene" uid="uid://bp0vq701p5ykp" path="res://option_button.tscn" id="2_tlr56"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2fbw"]
+texture = ExtResource("1_7atj5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l3wik"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_h2fbw")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_01vli")
+
+[node name="PlayerSelect0" parent="." instance=ExtResource("2_tlr56")]
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 161.0
+offset_bottom = 175.0
+item_count = 3
+popup/item_0/text = "Human"
+popup/item_0/id = 0
+popup/item_1/text = "Random"
+popup/item_1/id = 1
+popup/item_2/text = "MEC4E"
+popup/item_2/id = 2
+title = "Player 1"
+
+[node name="PlayerSelect1" parent="." instance=ExtResource("2_tlr56")]
+offset_left = 192.0
+offset_top = 144.0
+offset_right = 289.0
+offset_bottom = 175.0
+item_count = 3
+popup/item_0/text = "Human"
+popup/item_0/id = 0
+popup/item_1/text = "Random"
+popup/item_1/id = 1
+popup/item_2/text = "MEC4E"
+popup/item_2/id = 2
+title = "Player 2"
+
+[node name="SpeedSelect" parent="." instance=ExtResource("2_tlr56")]
+offset_left = 64.0
+offset_top = 320.0
+offset_right = 160.0
+offset_bottom = 351.0
+item_count = 3
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "Fast"
+popup/item_1/id = 1
+popup/item_2/text = "Instant"
+popup/item_2/id = 2
+title = "Game Speed"
+
+[node name="ContinueSelect" parent="." instance=ExtResource("2_tlr56")]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 288.0
+offset_bottom = 351.0
+item_count = 2
+popup/item_0/text = "Manual"
+popup/item_0/id = 0
+popup/item_1/text = "Auto"
+popup/item_1/id = 1
+title = "Continue"
+
+[node name="PlayerDisplay" type="Sprite2D" parent="."]
+position = Vector2(368, 568)
+texture = ExtResource("2_qhve3")
+hframes = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 536.0
+offset_right = 846.0
+offset_bottom = 619.0
+scale = Vector2(0.906971, 0.774723)
+theme_override_font_sizes/font_size = 40
+text = "Welcome!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Column0" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(384, 64)
+
+[node name="Column1" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(448, 64)
+column_number = 1
+
+[node name="Column2" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(512, 64)
+column_number = 2
+
+[node name="Column3" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(576, 64)
+column_number = 3
+
+[node name="Column4" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(640, 64)
+column_number = 4
+
+[node name="Column5" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(704, 64)
+column_number = 5
+
+[node name="Column6" parent="." instance=ExtResource("1_wqny1")]
+position = Vector2(768, 64)
+column_number = 6
+
+[node name="GameBoard" type="Node2D" parent="."]
+position = Vector2(224, 128)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="GameBoard"]
+modulate = Color(0, 0, 0, 0.203922)
+position = Vector2(1, 5)
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_l3wik")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameBoard"]
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_l3wik")
+
+[node name="GameCounter" type="Label" parent="."]
+offset_left = 1024.0
+offset_right = 1152.0
+offset_bottom = 64.0
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 928.0
+offset_top = 536.0
+offset_right = 1056.0
+offset_bottom = 600.0
+text = "Begin"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SaveButton" type="Button" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 568.0
+offset_right = 160.0
+offset_bottom = 599.0
+text = "Save"
+
+[node name="SaveSelect0" type="LineEdit" parent="."]
+visible = false
+offset_left = 864.0
+offset_top = 144.0
+offset_right = 1088.0
+offset_bottom = 175.0
+placeholder_text = "P1 save (blank for default)"
+
+[node name="SaveSelect1" type="LineEdit" parent="."]
+visible = false
+offset_left = 864.0
+offset_top = 240.0
+offset_right = 1088.0
+offset_bottom = 272.0
+placeholder_text = "P2 save (blank for default)"
+
+[connection signal="item_selected" from="PlayerSelect0" to="." method="_on_player_select_0_item_selected"]
+[connection signal="item_selected" from="PlayerSelect1" to="." method="_on_player_select_1_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="text_changed" from="SaveSelect0" to="." method="_on_save_select_0_text_changed"]
+[connection signal="text_changed" from="SaveSelect1" to="." method="_on_save_select_1_text_changed"]
