@@ -1,4 +1,4 @@
-Matchbox Educable Connect Four Engine, v1.0.0
+Matchbox Educable Connect Four Engine, v1.1.0
 
 ---Introduction---
 
