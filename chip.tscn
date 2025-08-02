@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://clukvlpho2m7n"]
+
+[ext_resource type="Script" uid="uid://b31mpnct6nitg" path="res://chip.gd" id="1_epo4u"]
+[ext_resource type="Texture2D" uid="uid://bmxuuil7to3xj" path="res://chips.png" id="1_jiqrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amd8t"]
+size = Vector2(0.920779, 1.84948)
+
+[node name="Chip" type="CharacterBody2D"]
+script = ExtResource("1_epo4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.76837e-07, -3.8147e-06)
+rotation = -3.14159
+scale = Vector2(52.1298, -34.6043)
+shape = SubResource("RectangleShape2D_amd8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jiqrj")
+hframes = 2
