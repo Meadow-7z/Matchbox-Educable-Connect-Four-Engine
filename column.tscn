@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3a8fmtippt8u"]
+
+[ext_resource type="Script" uid="uid://ds6mo1q313sfv" path="res://column.gd" id="1_fgxh4"]
+[ext_resource type="Texture2D" uid="uid://dr75y0ajjm0to" path="res://arrow.png" id="2_s0alw"]
+[ext_resource type="Texture2D" uid="uid://bmxuuil7to3xj" path="res://chips.png" id="3_ab75q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yixqi"]
+size = Vector2(64, 64)
+
+[node name="Column" type="StaticBody2D"]
+script = ExtResource("1_fgxh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 480)
+shape = SubResource("RectangleShape2D_yixqi")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 464.0
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+texture = ExtResource("2_s0alw")
+
+[node name="ChipPreview" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.497)
+position = Vector2(0, 416)
+texture = ExtResource("3_ab75q")
+hframes = 2
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
